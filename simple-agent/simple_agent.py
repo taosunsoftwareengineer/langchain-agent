@@ -1,7 +1,7 @@
 import getpass
 import os
 from langchain_tavily import TavilySearch
-from langchain.chat_models import init_chat_model
+from langchain_google_genai import ChatGoogleGenerativeAI
 from langgraph.prebuilt import create_react_agent
 from langgraph.checkpoint.memory import MemorySaver
 
@@ -28,7 +28,7 @@ tools = [search]
 # print(search_results)
 
 # Using language models
-model = init_chat_model("gemini-2.5-flash", model_provider="google_genai")
+model = ChatGoogleGenerativeAI(model="gemini-2.5-flash")
 model_with_tools = model.bind_tools(tools)
 
 # Ask questions
